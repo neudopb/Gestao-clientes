@@ -4,13 +4,227 @@
 
 {% block main %}
 
-    <h1>Bem Vindo!!!</h1>
-
-    {% if user.is_authenticated %}
+<div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+        <h1>Seja Bem Vindo!!!</h1>
+    </div>
+    <div class="col-sm">
+        {% if user.is_authenticated %}
         <p>Ola {{ user.username }}</p>
-        <a href="{% url 'logout' %}">Sair</a>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %}
+        <a href="{% url 'logout' %}"><span class="badge badge-warning">Sair</span></a>
+        {% else %}
+        <a href="{% url 'login' %}"><span class="badge badge-primary">Login</span></a>
+        {% endif %}
+    </div>
+</div>
 
 {% endblock %}
+
+{% block footer %}
+    <footer class="footer">
+        <div class="cotainer">
+            <span class="text-muted">Desenvolvimento web com Django</span>
+        </div>
+    </footer>
+{% endblock %}
+
+<!--
+<div class="container">
+    <div id="container" style="height: 500px; min-width: 310px; max-width: 800px; margin: 0 auto;"></div>
+</div>
+
+<script src="https://code.highcharts.com/maps/highmaps.js"></script>
+<script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/mapdata/countries/br/br-all.js"></script>
+<script>
+    var data = [
+        ['br-sp', 0],
+        ['br-ma', 1],
+        ['br-pa', 2],
+        ['br-sc', 3],
+        ['br-ba', 4],
+        ['br-ap', 5],
+        ['br-ms', 6],
+        ['br-mg', 7],
+        ['br-go', 8],
+        ['br-rs', 9],
+        ['br-to', 10],
+        ['br-pi', 11],
+        ['br-al', 12],
+        ['br-pb', 13],
+        ['br-ce', 14],
+        ['br-se', 15],
+        ['br-rr', 16],
+        ['br-pe', 17],
+        ['br-pr', 18],
+        ['br-es', 19],
+        ['br-rj', 20],
+        ['br-rn', 21],
+        ['br-am', 22],
+        ['br-mt', 23],
+        ['br-df', 24],
+        ['br-ac', 25],
+        ['br-ro', 26]
+    ];
+
+    // Create the chart
+    Highcharts.mapChart('container', {
+        chart: {
+            map: 'countries/br/br-all'
+        },
+
+        title: {
+            text: 'Highmaps basic demo'
+        },
+
+        subtitle: {
+            text: 'Source map: <a href="http://code.highcharts.com/mapdata/countries/br/br-all.js">Brazil</a>'
+        },
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        colorAxis: {
+            min: 0
+        },
+
+        series: [{
+            data: data,
+            name: 'Random data',
+            states: {
+                hover: {
+                    color: '#BADA55'
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }]
+    });
+
+</script>
+-->
+
+<!--
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        TESTE
+    </p>
+</figure>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<script>
+    Highcharts.chart('container', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: '10 melhores'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        accessibility: {
+            point: {
+                valueSuffix: '%'
+            }
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            name: 'Licitacao',
+            colorByPoint: true,
+            data: [{
+                name: 'Licitacao1',
+                y: 10.00,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Licitacao2',
+                y: 10.00
+            }, {
+                name: 'Licitacao3',
+                y: 10.00
+            }, {
+                name: 'Licitacao4',
+                y: 10.00
+            }, {
+                name: 'Licitacao5',
+                y: 10.00
+            }, {
+                name: 'Licitacao6',
+                y: 10.00
+            }, {
+                name: 'Licitacao7',
+                y: 10.00
+            }, {
+                name: 'Licitacao8',
+                y: 10.00
+            }, {
+                name: 'Licitacao9',
+                y: 10.00
+            }, {
+                name: 'Licitacao10',
+                y: 10.00
+            }]
+        }]
+    });
+</script> -->
+
+
+<!--
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+
+input[type="number"] {
+	min-width: 50px;
+}
+-->
